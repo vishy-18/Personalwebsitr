@@ -1,0 +1,257 @@
+v<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vishaal A - Portfolio</title>
+
+    <!-- Inline CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(270deg, #6a11cb, #2575fc); /* Soft blue and purple gradient */
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite; /* Gradient animation */
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Hide body scrollbar */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            height: 90vh; /* Set fixed height */
+            overflow-y: auto; /* Allow vertical scrolling */
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            animation: fadeIn 2s ease-in;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: slideIn 1.5s ease-in;
+        }
+
+        header h2 {
+            font-size: 1.8rem;
+            margin-top: 10px;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-info {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .skills, .interests {
+            margin: 30px 0;
+            animation: fadeInUp 2s ease-in;
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+        }
+
+        .linkedin-link {
+            color: #00acee;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .linkedin-link:hover {
+            color: #ffcc00;
+            text-decoration: underline;
+        }
+
+        .chatbot {
+            margin-top: 50px;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        #chatbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #chat-output {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            background-color: rgba(255, 255, 255, 0.3);
+            overflow-y: auto;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #chat-input {
+            width: 80%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #ffcc00;
+            color: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+
+        button:hover {
+            background-color: #fff;
+        }
+
+        #chat-output p {
+            margin: 5px 0;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vishaal A</h1>
+            <h2>B.E Computer Science & Engineering</h2>
+        </header>
+
+        <section class="profile">
+            <div class="profile-info">
+                <p><strong>Age:</strong> 18</p>
+                <p><strong>Date of Birth:</strong> 09.03.2006</p>
+                <p><strong>Skills:</strong> C, C++, Java, Python</p>
+                <p><strong>Areas of Interest:</strong> Cyber Security, Computer Networks, Web Development</p>
+                <a href="https://www.linkedin.com/in/vishaal-a-8b8127290?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BbVU%2BAm9USwyMl9GSKLwQTg%3D%3D" 
+                   target="_blank" class="linkedin-link">LinkedIn Profile</a>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h3>Skills</h3>
+            <ul>
+                <li>C</li>
+                <li>C++</li>
+                <li>Java</li>
+                <li>Python</li>
+            </ul>
+        </section>
+
+        <section class="interests">
